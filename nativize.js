@@ -1,5 +1,3 @@
-//PROTOTYPE
-
 export const check = async () => {
   console.log("Checking webview 2...");
   console.log("we check dependencies, development environments");
@@ -51,3 +49,19 @@ export const run = async () => {
     console.error(error);
   }
 };
+
+
+export const clean = async () => {
+  console.log("Cleaning webview 2...");
+
+  try {
+    await new Deno.Command("msbuild", {
+      args: [
+        `${import.meta.dirname}/nativize-webview2.sln`,
+        "/t:Clean",
+      ],
+    }).spawn().status;
+  } catch (error) {
+    console.error(error);
+  }
+}
