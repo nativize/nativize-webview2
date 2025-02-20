@@ -8,11 +8,10 @@
 #define WIN32_LEAN_AND_MEAN             // Exclude rarely-used stuff from Windows headers
 // Windows Header Files
 #include <windows.h>
+#include <winrt/Windows.Foundation.h>
+#include <winrt/Microsoft.Web.WebView2.Core.h>
 // C RunTime Header Files
 #include <stdlib.h>
 #include <malloc.h>
 #include <memory.h>
 #include <tchar.h>
-// WebView2 Header Files
-#include <wrl.h>
-#include <WebView2.h>
