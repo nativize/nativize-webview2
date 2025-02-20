@@ -26,9 +26,7 @@ export const build = async () => {
 
   try {
     await new Deno.Command("msbuild", {
-      args: [
-        `${import.meta.dirname}/nativize-webview2.sln`,
-      ],
+      cwd: import.meta.dirname
     }).spawn().status;
   } catch (error) {
     console.error(error);
@@ -57,9 +55,10 @@ export const clean = async () => {
   try {
     await new Deno.Command("msbuild", {
       args: [
-        `${import.meta.dirname}/nativize-webview2.sln`,
+        `nativize-webview2.sln`,
         "/t:Clean",
       ],
+      cwd: import.meta.dirname
     }).spawn().status;
   } catch (error) {
     console.error(error);
