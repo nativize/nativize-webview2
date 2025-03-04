@@ -130,7 +130,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     case WM_SIZE:
         if (webviewController != nullptr) {
             RECT bounds;
-            GetClientRect(hWnd, &bounds);
+            GetClientRect(hWnd, &bounds); 
+            //TODO: convert it wiser...
             webviewController.Bounds(Rect (
                 static_cast<float>(bounds.left),
                 static_cast<float>(bounds.top),
@@ -175,6 +176,7 @@ void InitWebView(HWND hWnd)
             settings.IsWebMessageEnabled(true);
 
             RECT bounds;
+            //TODO: convert it wiser...
             GetClientRect(hWnd, &bounds);
             webviewController.Bounds(Rect(
                 static_cast<float>(bounds.left),
