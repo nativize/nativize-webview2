@@ -185,7 +185,8 @@ void InitWebView(HWND hWnd)
                 static_cast<float>(bounds.bottom - bounds.top)
             ));
 
-            webview.Navigate(L"https://www.github.com/nativize");
+            //TODO: pass it from command line
+            webview.Navigate(NATIVIZE_URL);
         };
 
         environment.CreateCoreWebView2ControllerAsync(CoreWebView2ControllerWindowReference::CreateFromWindowHandle(reinterpret_cast<uint64_t>(hWnd))).Completed(controller_created_handler);

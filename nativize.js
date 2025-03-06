@@ -17,19 +17,21 @@ export const prepare = async () => {
   }).spawn().status;
 };
 
-export const build = async () => {
-  //TODO: get rid of this
-  console.log("Building webview 2...");
-
+/**
+ * 
+ * @param {*} url 
+ */
+export const build = async ({url}) => {
   await new Deno.Command("msbuild", {
+    args: [
+      //"nativize-webview2.sln",
+      `/p:NativizeURL=${url}`,
+    ],
     cwd: import.meta.dirname,
   }).spawn().status;
 };
 
 export const run = async () => {
-  //TODO: get rid of this
-  console.log("Running webview 2...");
-
   //TODO: we need to implement some way to access several architecture directories
   await new Deno.Command(
     `${import.meta.dirname}/x64/Debug/nativize-webview2.exe`,
